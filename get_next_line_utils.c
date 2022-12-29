@@ -6,7 +6,7 @@
 /*   By: matavare <matavare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 11:58:19 by matavare          #+#    #+#             */
-/*   Updated: 2022/12/28 15:03:41 by matavare         ###   ########.fr       */
+/*   Updated: 2022/12/29 15:09:03 by matavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ char	*gnl_strjoin(char *line, char *buffer)
 	int	ib;
 	int	new_len;
 
-	il = gnl_strlen(line) - 1;
+	il = gnl_strlen(line);
+	if (il != 0)
+		il--;
 	ib = 0;
-	if (!line)
-		il = 0;
 	new_len = il + gnl_strlen(buffer);
 	line = (char *)malloc(sizeof(char) * (new_len + 1));
 	if (!line)
@@ -42,15 +42,15 @@ char	*gnl_buffer_clear(char *buffer)
 
 	i = 0;
 	ii = 0;
-	while (buffer && buffer[i] != '\n')
+	while (buffer[i] && buffer[i] != '\n')
 	{
-		buffer[i] = 0;
+		buffer[i] = '\0';
 		i++;
 		if (buffer[i] == '\n')
 		{
-			buffer[i] = 0;
+			buffer[i] = '\0';
 			i++;
-			while (buffer && ii < i)
+			while (buffer[i] != '\0')
 			{
 				buffer[ii] = buffer[i];
 				buffer[i] = 0;
@@ -67,7 +67,7 @@ int	gnl_strlen(char *str)
 	int	i;
 
 	i = 0;
-	while (str && str[i] != '\n')
+	while (str[i] != '\0' && str[i] != '\n')
 		i++;
 	return (i);
 }
