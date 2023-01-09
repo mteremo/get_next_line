@@ -6,7 +6,7 @@
 /*   By: matavare <matavare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 11:58:19 by matavare          #+#    #+#             */
-/*   Updated: 2022/12/29 15:09:03 by matavare         ###   ########.fr       */
+/*   Updated: 2023/01/09 14:48:18 by matavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 
 char	*gnl_strjoin(char *line, char *buffer)
 {
-	int	il;
-	int	ib;
-	int	new_len;
+	int		il;
+	int		ib;
+	int		new_len;
 
-	il = gnl_strlen(line);
-	if (il != 0)
-		il--;
+	il = 0;
 	ib = 0;
-	new_len = il + gnl_strlen(buffer);
+	new_len = gnl_strlen(buffer);
 	line = (char *)malloc(sizeof(char) * (new_len + 1));
 	if (!line)
 		return (0);
-	while (buffer[ib] && buffer[ib] != '\n')
+	while (buffer[ib])
 	{
-		line[il] = buffer[ib];
-		il++;
+		line[ib] = buffer[ib];
 		ib++;
 	}
 	return (line);
@@ -70,20 +67,4 @@ int	gnl_strlen(char *str)
 	while (str[i] != '\0' && str[i] != '\n')
 		i++;
 	return (i);
-}
-
-int	main(void)
-{
-	int		fd;
-	char	*str;
-
-	fd = open("test.txt", O_RDONLY);
-	str = get_next_line(fd);
-	while (str)
-	{
-		printf("%s", str);
-		free(str);
-		str = get_next_line(fd);
-	}
-	free(str);
 }
