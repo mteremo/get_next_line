@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matavare <matavare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 12:34:50 by matavare          #+#    #+#             */
-/*   Updated: 2023/01/13 16:10:13 by matavare         ###   ########.fr       */
+/*   Created: 2023/01/13 16:16:01 by matavare          #+#    #+#             */
+/*   Updated: 2023/01/13 16:24:35 by matavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
@@ -18,7 +18,7 @@ char	*get_next_line(int fd)
 	int			j;
 	int			flag;
 	char		*line;
-	static char	buffer[BUFFER_SIZE + 1];
+	static char	buffer[fd][BUFFER_SIZE + 1];
 
 	line = NULL;
 	flag = 0;
@@ -30,10 +30,10 @@ char	*get_next_line(int fd)
 		while (buffer[i])
 		{
 			if (flag == 1)
-				buffer[j++] = buffer[i];
-			if (buffer[i] == '\n')
+				buffer[fd][j++] = buffer[i];
+			if (buffer[fd][i] == '\n')
 				flag = 1;
-			buffer[i++] = 0;
+			buffer[fd][i++] = 0;
 		}
 	}
 	return (line);

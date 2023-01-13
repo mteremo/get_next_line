@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matavare <matavare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 14:38:59 by matavare          #+#    #+#             */
-/*   Updated: 2023/01/13 15:52:44 by matavare         ###   ########.fr       */
+/*   Created: 2023/01/13 16:16:05 by matavare          #+#    #+#             */
+/*   Updated: 2023/01/13 16:18:23 by matavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*gnl_strjoin(char *line, char *buffer)
 {
