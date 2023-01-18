@@ -6,7 +6,7 @@
 /*   By: matavare <matavare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:34:50 by matavare          #+#    #+#             */
-/*   Updated: 2023/01/18 11:14:28 by matavare         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:59:49 by matavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*get_next_line(int fd)
 
 	line = NULL;
 	flag = 0;
-	while (!flag && (buffer[0] || read(fd, buffer, BUFFER_SIZE) > 0))
+	while (!flag && !(read(fd, 0, 0) < 0) && \
+			(buffer[0] || read(fd, buffer, BUFFER_SIZE) > 0))
 	{
 		line = gnl_strjoin(line, buffer);
 		i = 0;

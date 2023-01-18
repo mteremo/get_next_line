@@ -6,7 +6,7 @@
 /*   By: matavare <matavare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:16:01 by matavare          #+#    #+#             */
-/*   Updated: 2023/01/18 12:01:43 by matavare         ###   ########.fr       */
+/*   Updated: 2023/01/18 15:01:33 by matavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	buffer[FOPEN_MAX][BUFFER_SIZE + 1];
 
+	if (BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+		return (NULL);
 	line = NULL;
 	flag = 0;
 	while (!flag && (buffer[fd][0] || read(fd, buffer[fd], BUFFER_SIZE) > 0))
