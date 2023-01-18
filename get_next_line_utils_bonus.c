@@ -6,7 +6,7 @@
 /*   By: matavare <matavare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:16:05 by matavare          #+#    #+#             */
-/*   Updated: 2023/01/13 16:18:23 by matavare         ###   ########.fr       */
+/*   Updated: 2023/01/18 11:44:42 by matavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*gnl_strjoin(char *line, char *buffer)
 	i = 0;
 	j = 0;
 	len = gnl_strlen(line) + gnl_strlen(buffer);
-	new_line = (char *)malloc(sizeof(char) * (len + 3));
+	new_line = (char *)malloc(sizeof(char) * (len + 2));
 	if (!new_line)
 		return (0);
 	if (line)

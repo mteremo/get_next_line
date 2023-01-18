@@ -6,7 +6,7 @@
 /*   By: matavare <matavare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 12:34:50 by matavare          #+#    #+#             */
-/*   Updated: 2023/01/13 16:10:13 by matavare         ###   ########.fr       */
+/*   Updated: 2023/01/18 11:14:28 by matavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	int		fd;
 	char	*str;
@@ -55,3 +55,4 @@ int	main(void)
 	}
 	free(str);
 }
+ */
